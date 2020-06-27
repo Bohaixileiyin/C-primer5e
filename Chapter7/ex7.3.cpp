@@ -9,7 +9,7 @@ int main(){
     data1.revenue = data1.units_sold * price;
     std::cin >> data2.bookNo >> data2.units_sold >> price;
     data2.revenue = data2.units_sold * price;    
-    
+    //isbn(),combine(),avg_price()
     Sales_data &total = data1;
     if(total.isbn() == data2.isbn()){
         total.combine(data2);
