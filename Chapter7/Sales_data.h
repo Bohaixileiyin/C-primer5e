@@ -3,11 +3,26 @@
 
 #include <iostream>
 #include <string>//同理在已经include过string的情况下，由于string头文件也有头文件保护符，预处理时不会被重复包含
-struct Sales_data
-{//定义在类内部的函数是隐式的inline函数，见P214
+
+using std::istream;
+using std::ostream;
+
+class Sales_data
+{
+friend Sales_data add(const Sales_data &,const Sales_data &);
+friend istream &read(istream &,Sales_data &);
+friend ostream &print(ostream &,const Sales_data &);
+//定义在类内部的函数是隐式的inline函数，见P214
+public:
+    //构造函数
+    Sales_data() = default;
+    Sales_data(const std::string &s):bookNo(s){}
+    Sales_data(const std::string &s,unsigned n,double p):bookNo(s),units_sold(n),revenue(p * n){}
+    Sales_data(istream &);
     //成员函数
     std::string isbn() const{return bookNo;}
     Sales_data& combine(const Sales_data&);
+private:
     double avg_price() const;//此函数的目的并不是给用户来调用，只是类的实现的一部分，因此属于类的实现而非接口
     //数据成员
     std::string bookNo;
@@ -15,8 +30,6 @@ struct Sales_data
     double revenue = 0.0;
 };
 //非成员接口函数声明
-using std::istream;
-using std::ostream;
 Sales_data add(const Sales_data&,const Sales_data&);
 std::ostream &print(std::ostream&,const Sales_data&);
 std::istream &read(std::istream&,Sales_data&);
@@ -49,6 +62,11 @@ Sales_data add(const Sales_data &lhs,const Sales_data &rhs){
     Sales_data sum = lhs;
     sum.combine(rhs);
     return sum;
+}
+
+//在类的外部定义构造函数
+Sales_data::Sales_data(istream &is){
+    read(is,*this);
 }
 
 #endif
