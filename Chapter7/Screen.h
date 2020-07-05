@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 class Screen{
-    friend class Window_mgr;
+    friend class Window_mgr;//把Window_mgr声明为Screen的友元类，是让Win可以访问Scree的私有部分，此文件中并未访问Win类，因此不用include Window_mgr
 public:
     typedef std::string::size_type pos;
 

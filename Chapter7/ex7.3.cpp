@@ -1,4 +1,5 @@
 // ./Chapter7/ex7.3 < ./Chapter7/input.txt
+//因此在此练习之后有习题要求封装Sale_data，因此可能不再能运行
 #include <iostream>
 #include <string>
 #include "Sales_data.h"
