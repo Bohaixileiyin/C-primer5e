@@ -1,5 +1,5 @@
 //./Chapter1/readitem < ./Chapter1/input.txt
-#include    "../../GCC_4_7_0/1/Sales_item.h"
+#include    "../../../bookcode/cppprimerGCC_4_7_0/1/Sales_item.h"
 #include    <iostream>
 
 int main(){
