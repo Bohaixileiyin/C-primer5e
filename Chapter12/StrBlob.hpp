@@ -42,7 +42,7 @@ class StrBlob{
 StrBlob::StrBlob():data(std::make_shared<std::vector<std::string>>()){}
 StrBlob::StrBlob(std::initializer_list<std::string> i1):data(std::make_shared<std::vector<std::string>>(i1)){}
 
-void StrBlob::check(size_type i, const std::string &msg)const{//const成员函数，表示不会修改成员
+void StrBlob::check(size_type i, const std::string &msg)const{//末尾加const为const成员函数，表示不会修改成员，只有类的成员函数有这种写法，其它函数加了会报错也没有必要加，见P248
     if(i >= data->size())
         throw std::out_of_range(msg);
 }
