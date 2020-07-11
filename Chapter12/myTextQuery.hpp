@@ -9,7 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <memory>
-#include "myQueryResult.hpp"
+//#include "myQueryResult.hpp"不必include声明QueryResult类即可
 
 using std::shared_ptr;
 using std::vector;
@@ -20,6 +20,7 @@ using std::istringstream;
 using std::ifstream;
 using std::istream;
 
+class myQueryResult;
 class myTextQuery{
     friend class myQueryResult;
     public:
