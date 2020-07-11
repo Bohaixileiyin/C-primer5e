@@ -23,14 +23,14 @@ class myQueryResult{
         myQueryResult() = default;
         myQueryResult(const string w,shared_ptr<vector<string>> txt,shared_ptr<map<string,set<int>>> ln):word(w),text(txt),lineNumber(ln){}
 
-        void printWord()const{
-            cout << word << " occurs " << (*(*lineNumber).find(word)).second.size() << "  times" << endl;
-        }
-        void printText()const{
-            for(auto &ln:(*(*lineNumber).find(word)).second){
-                cout << "    " << "(line " << ln << ")" << text->at(ln - 1) << endl;
-            }
-        }
+        // void printWord()const{
+        //     cout << word << " occurs " << (*(*lineNumber).find(word)).second.size() << "  times" << endl;
+        // }
+        // void printText()const{
+        //     for(auto &ln:(*(*lineNumber).find(word)).second){
+        //         cout << "    " << "(line " << ln << ")" << text->at(ln - 1) << endl;
+        //     }
+        // }
     private:
         string word;
         shared_ptr<vector<string>> text = std::make_shared<vector<string>>();
