@@ -10,6 +10,7 @@ class numbered{
         static int No;
     private:
 };
+//静态数据成员不能在类内定义
 int numbered::No = 0;
 
 #endif
