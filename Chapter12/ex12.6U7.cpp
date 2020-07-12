@@ -57,10 +57,13 @@ int main(){
     cout << i << endl;//输出是1注意别被误导，i不是变量是函数
     cout << func << endl;//这个没有函数体的函数输出也是1
 
-    int j{};//这才是值初始化
+    int j{};//这才是值初始化，原理和容器初始化列表不足时，剩余元素默认初始化相同，见P299
+    int k = int();
     cout << j << endl;//内置类型没有构造函数，所以值初始化都是零初始化
+    cout << k << endl;
     //详见stackflow         https://stackoverflow.com/questions/17131911/what-does-int-do-in-c
 
     int* pi = new int();
     cout << *pi << endl;
+    
 }
