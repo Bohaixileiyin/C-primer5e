@@ -63,7 +63,14 @@ Sales_data add(const Sales_data &lhs,const Sales_data &rhs){
     sum.combine(rhs);
     return sum;
 }
-
+//ex14.6
+ostream &operator<<(ostream &os, const Sales_data &item){
+    return print(os, item);
+}
+//ex14.9
+istream &operator>>(istream &is, Sales_data &item){
+    return read(is,item);
+}
 //在类的外部定义构造函数
 Sales_data::Sales_data(istream &is){
     read(is,*this);
