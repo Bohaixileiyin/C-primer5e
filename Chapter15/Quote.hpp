@@ -5,14 +5,19 @@
 #include <iostream>
 class Quote{
     public:
-        Quote() = default;
+        Quote() = default;                                                              //默认构造函数
+        Quote(const Quote&) = default;                                  //拷贝构造函数
+        Quote(Quote&&) = default;                                           //移动构造函数
+        Quote& operator=(const Quote&) = default;           //拷贝赋值函数
+        Quote& operator=(Quote&&) = default;                    //移动赋值函数
+        virtual ~Quote() = default;                                             //虚析构函数
+
         Quote(const std::string &book, double sales_price):bookNo(book), price(sales_price){}
         std::string isbn()const {return bookNo;}
 
         virtual double net_price(std::size_t n)const{return n*price;}
         //ex15.11
         virtual void debug()const{std::cout << bookNo << " " << price << std::endl;}
-        virtual ~Quote() = default;
     private:
         std::string bookNo;
     protected:
