@@ -7,7 +7,7 @@ int main(){
     vector<int> iv(begin(ia),end(ia));
     list<int> il(begin(ia),end(ia));
 //注意vector被erase元素之后的迭代器都会失效，所以不能用尾后迭代器做循环判断条件
-//不能保存end(),所以必须反复调研end()
+//不能保存end(),所以必须反复调用end()
     for (auto first = iv.begin(); first != iv.end(); )
     {
         //cout << *first << endl;
