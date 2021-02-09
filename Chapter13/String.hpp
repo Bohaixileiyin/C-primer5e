@@ -45,6 +45,24 @@ class String{
             header = t;
             return *this;
         }
+        //ex13.49
+        //移动构造
+        String(String&& o):header(o.header), size(o.size){
+            cout << "移动构造" << endl;
+            o.size = 0;
+            o.header = nullptr;
+        }
+        //移动赋值
+        String& operator=(String&& o){
+            cout << "移动赋值" << endl;
+            if(this != &o){
+                size = o.size;
+                header = o.header;
+                o.size = 0;
+                o.header = nullptr;
+            }
+            return *this;
+        }
         //析构
         ~String(){free();//cout << "析构" << endl;
         }
