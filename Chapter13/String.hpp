@@ -3,6 +3,7 @@
 #include <cstring>
 #include <memory>
 #include <iostream>
+#include <exception>
 using std::cout;
 using std::endl;
 class String{
@@ -47,13 +48,13 @@ class String{
         }
         //ex13.49
         //移动构造
-        String(String&& o):header(o.header), size(o.size){
+        String(String&& o)noexcept:header(o.header), size(o.size){
             cout << "移动构造" << endl;
             o.size = 0;
             o.header = nullptr;
         }
         //移动赋值
-        String& operator=(String&& o){
+        String& operator=(String&& o)noexcept{
             cout << "移动赋值" << endl;
             if(this != &o){
                 size = o.size;
