@@ -1,15 +1,20 @@
 #include <iostream>
 #include "String.hpp"
+#include "myString.hpp"
 using namespace std;
 int main(){
-    String str("hello,world");
-    cout << str.begin() << endl;
+    myString s("hello,world");
+    cout << s.content() << endl;
 
-    String copy(str);
-    cout << copy.begin() << endl;
+    myString copy(s);
+    cout << copy.content() << endl;
 
-    copy = str;
-    cout << copy.begin() << endl;
+    copy = s;
+    cout << copy.content() << endl;
+    for (size_t i = 0; i < 1000000000; i++){
+        myString test("helloworld");
+    }
+    //刚开始忘了写析构函数，结果内存暴涨，vscode也卡死了
 
     // for (size_t i = 0; i < 1000000000; i++)
     // //数分钟的运行过程内存占用没有变化，大致可判断无泄露
@@ -18,4 +23,6 @@ int main(){
     // {
     //     String test("helloworld");
     // }
+
+
 }
