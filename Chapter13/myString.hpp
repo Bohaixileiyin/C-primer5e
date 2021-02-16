@@ -9,7 +9,7 @@ class myString{
         char* str = nullptr;
         void init(int size, const char* src){
             str = new char[size + 1];
-            memcpy(str, src, size);
+            memcpy(str, src, size + 1);
         }
     public:
         //构造函数
